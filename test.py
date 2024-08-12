@@ -1,12 +1,6 @@
-class Test:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
+from website import create_app
 
-    def greet(self):
-        print("Hello " + self.name)
-        print("I am " + self.age + " years old")
+app = create_app()
 
-    @classmethod
-    def create_anonymous(cls):
-        return Test('Anonymous', 18)
+if __name__ == '__main__':
+    app.run(debug=True)
