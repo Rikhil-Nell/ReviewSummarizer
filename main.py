@@ -4,8 +4,7 @@ from review_classifier import ReviewClassifier
 
 
 def main():
-    url = "https://www.amazon.in/Number-Backpack-Compartment-Charging-Organizer/dp/B09VTDMRY7?pd_rd_w=giCzt&content-id=amzn1.sym.ec5c60c1-ae3d-4950-9707-1e49240719bc&pf_rd_p=ec5c60c1-ae3d-4950-9707-1e49240719bc&pf_rd_r=Y3MSH92QWBEKYCN9ATGK&pd_rd_wg=ZzwV4&pd_rd_r=8e0c7a40-a11e-4573-9b38-15ab13f59a8c&pd_rd_i=B09VTDMRY7&ref_=pd_hp_d_btf_unk_B09VTDMRY7"
-
+    url = "https://www.amazon.in/ASIAN-Wonder-Firozi-Sports-Indian/dp/B01MTQ5M7B/ref=pd_rhf_cr_s_pd_crcbs_d_sccl_1_3/258-8358292-5648055?pd_rd_w=sDGPM&content-id=amzn1.sym.bc7f710c-555f-4ed6-8aed-005a29b438d8&pf_rd_p=bc7f710c-555f-4ed6-8aed-005a29b438d8&pf_rd_r=YAZ0BWGD6MH01GMDDKS9&pd_rd_wg=G1fXq&pd_rd_r=e9c8a13d-1dd7-4f05-b05c-7ebdaf442512&pd_rd_i=B01MTQ5M7B&psc=1"
     # Creating object of the class SeleniumDriver
     selenium_driver = SeleniumDriver()
     # Setting up the webdriver
@@ -23,15 +22,8 @@ def main():
             negative_reviews = parse_reviews(page_sources[1])
 
             # Combine positive and negative reviews
-            reviews = ([review for review in positive_reviews] +
-                       [review for review in negative_reviews])
-
-            print("Reviews:")
-            for i, review in enumerate(reviews, start=1):
-                print(f"Review {i}:")
-                print(f"Review: {review['review']}")
-                print(f"Date: {review['date']}")
-                print("-" * 40)  # Separator line
+            reviews = ([review['review'] for review in positive_reviews] +
+                       [review['review'] for review in negative_reviews])
 
             # Create and use the ReviewClassifier
             review_classifier = ReviewClassifier(reviews)
