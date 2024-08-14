@@ -1,59 +1,41 @@
-# Amazon Review Scraper
 
-This project is designed to scrape and analyze product reviews from Amazon using Python. It integrates web scraping techniques with Natural Language Processing (NLP) for sentiment analysis and text summarization, all wrapped in a Flask-based web application for a user-friendly experience.
+# Review Summarizer
 
-## Technologies Used
+## **Under Development**
 
-### Web Scraping
+**Note:** This project is currently under active development. The instructions for installation and usage will be provided once the project reaches a more stable state.
 
-* **Selenium:** An automation tool for controlling web browsers. It facilitates navigation through Amazon product pages and review sections, especially for dynamic content rendered via JavaScript.
-* **BeautifulSoup:** A library for parsing HTML and XML documents. Used to extract and process review data from the scraped HTML content retrieved by Selenium.
+## **Project Overview**
 
-### Natural Language Processing (NLP)
+The **Review Summarizer** is a web scraping and sentiment analysis tool designed to collect, analyze, and visualize product reviews from Amazon. The project aims to provide users with detailed insights into customer feedback through sentiment classification and review summarization.
 
-* **Hugging Face Transformers:** A library for utilizing state-of-the-art NLP models. It's employed for sentiment analysis and text generation. Specifically, models like BERT handle sentiment analysis, while GPT-like models generate summaries of reviews.
-* **NLTK (Natural Language Toolkit):** A library for working with text data. Provides additional text processing functionalities.
+## **Project Goals**
 
-### Web Development
+1. **Web Scraping**: Extract product reviews from Amazon using web scraping techniques. Initially implemented with **Selenium** for navigation and **BeautifulSoup** for parsing, this allows the collection of valuable review data for analysis.
 
-* **Flask:** A lightweight web framework for Python. Creates a RESTful API, allowing users to trigger scraping and access results through HTTP requests. 
+2. **Data Storage**: Transitioned from in-memory data structures to a robust **PostgreSQL** database. This setup facilitates efficient data management, allowing for the handling of larger datasets and temporary storage of reviews for processing.
 
-### Browser Automation
+3. **Text Classification**: Employed **zero-shot classification** with the **Hugging Face Transformers** library to classify review sentiments. The classification system provides nuanced sentiment insights ranging from “positive” to “somewhat negative,” offering a comprehensive understanding of user sentiments.
 
-* **Google Chrome:** The web browser used for scraping. Chosen for its compatibility with Selenium and ChromeDriver.
-* **ChromeDriver:** A separate executable that allows Selenium to control Chrome. It acts as a bridge between the Selenium WebDriver and the Chrome browser.
+4. **Charting**: Planned implementation of charting functionalities to visualize sentiment trends over time. By plotting review sentiment on a monthly basis, users will be able to track changes in public perception and identify patterns in customer feedback.
 
-## Features
+5. **LLM Summarization**: Integration of **Hugging Face’s transformers pipelines** to generate concise summaries of product reviews. This feature will enable users to quickly grasp the essence of customer feedback through insightful and comprehensive overviews.
 
-* Scrapes both positive and negative reviews from Amazon product pages.
-* Extracts review text and posting dates.
-* Performs sentiment analysis, classifying reviews as positive, negative, or neutral.
-* Summarizes top reviews using advanced text generation models.
-* Provides a Flask-based API to initiate scraping and retrieve review data.
-* Supports headless mode for running the browser without a graphical user interface (GUI), ideal for automated environments.
+6. **Flask Web Application**: Development of a **Flask** web application to present the results. The web interface will allow users to input a product link, view detailed sentiment analysis, and see visualizations of review data, making the information accessible and engaging.
 
-## Prerequisites
+7. **Caching**: Future integration of caching mechanisms using **Redis** to improve performance. By storing results of scraping, classification, and summarization processes, this will reduce processing times for repeat requests, minimize computational overhead, and provide a smoother user experience.
 
-* Python 3.7 or higher
-* [Google Chrome](https://www.google.com/chrome/) (or another supported browser)
-* ChromeDriver compatible with your Chrome version
-* **Transformers** library by Hugging Face for NLP tasks
-* **NLTK** library for additional text processing
+## **Current Status**
 
-## Installation
+As of now, the project has successfully implemented the core functionalities of web scraping and text classification. The transition to using a PostgreSQL database for data storage has been completed, enhancing data management capabilities. The next steps include developing charting functionalities, integrating LLM summarization, and building the Flask web application.
 
-1. **Clone the Repository:**
+## **Learning Experience**
 
-```sh
-git clone [https://github.com/yourusername/amazon-review-scraper.git](https://github.com/yourusername/amazon-review-scraper.git)
-cd amazon-review-scraper
-```
+This project has been a significant learning journey. Starting with tools that were less suited for the task, I discovered the advantages of using **Scrapy** for scraping and **PostgreSQL** for data storage. Each phase of development has deepened my understanding of web scraping, data management, and machine learning techniques.
 
-2. **Create and Activate a Virtual Environment:**
+## **Future Work**
 
-```sh
-python -m venv venv
-source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-```
-
-3.
+- **Charting**: Implementing visualization of sentiment trends over time.
+- **LLM Summarization**: Integrating summarization capabilities to provide concise overviews of reviews.
+- **Flask Web App**: Developing the user interface to showcase analysis results.
+- **Caching**: Enhancing performance with Redis caching to improve user experience.
